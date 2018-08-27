@@ -184,6 +184,30 @@ CN 指定该证书的 User 为 system:kube-proxy
 
 kube-apiserver 预定义的 ClusterRoleBinding system:node-proxier 将User system:kube-proxy 与 Role system:node-proxier 绑定，该 Role 授予了调用 kube-apiserver Proxy 相关 API 的权限
 
+```
+root@master:~# kubectl get clusterrolebinding system:node-proxier -n kube-system -o yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  creationTimestamp: 2018-08-24T14:27:33Z
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: system:node-proxier
+  resourceVersion: "95"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterrolebindings/system%3Anode-proxier
+  uid: d7263aad-a7a9-11e8-8c0d-5254001f7ab1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: system:node-proxier
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: User
+  name: system:kube-proxy
+```
+
 生成kube-proxy证书和私钥
 
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes kube-proxy-csr
