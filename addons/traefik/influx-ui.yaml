@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: influxdb-ui
+  namespace: kube-system
+spec:
+  rules:
+  - host: influxdb-ui.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: monitoring-influxdb
+          servicePort: 8086
