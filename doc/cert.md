@@ -1,5 +1,5 @@
 ## 制作证书
-利用cfssl制作证书
+利用cfssl制作证书，在master上操作，制作好的证书分发到node节点使用
 
 mkdir /etc/kubernetes/ssl
 
