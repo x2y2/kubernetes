@@ -194,20 +194,33 @@ cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kube
 生成的 CA 证书和秘钥文件如下：
 
 ca-key.pem
+
 ca.pem
+
 kubernetes-key.pem
+
 kubernetes.pem
+
 kube-proxy.pem
+
 kube-proxy-key.pem
+
 admin.pem
+
 admin-key.pem
+
 使用证书的组件如下：
 
 etcd：使用 ca.pem、kubernetes-key.pem、kubernetes.pem；
+
 kube-apiserver：使用 ca.pem、kubernetes-key.pem、kubernetes.pem；
+
 kubelet：使用 ca.pem；
+
 kube-proxy：使用 ca.pem、kube-proxy-key.pem、kube-proxy.pem；
+
 kubectl：使用 ca.pem、admin-key.pem、admin.pem；
+
 kube-controller-manager：使用 ca-key.pem、ca.pem
 
 创建证书都在master上创建，并且创建一次就可以了，以后需要添加节点就直接复制一份过去就可以用
