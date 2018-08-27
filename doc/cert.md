@@ -151,6 +151,30 @@ O 指定该证书的 Group 为 system:masters，kubelet 使用该证书访问 ku
 
 这个admin 证书，是将来生成管理员用的kube config 配置文件用的，现在我们一般建议使用RBAC 来对kubernetes 进行角色权限控制， kubernetes 将证书中的CN 字段 作为User， O 字段作为 Group
 
+```
+root@master:~# kubectl get clusterrolebinding cluster-admin  -o yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  annotations:
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  creationTimestamp: 2018-08-24T14:27:33Z
+  labels:
+    kubernetes.io/bootstrapping: rbac-defaults
+  name: cluster-admin
+  resourceVersion: "92"
+  selfLink: /apis/rbac.authorization.k8s.io/v1/clusterrolebindings/cluster-admin
+  uid: d701ac5e-a7a9-11e8-8c0d-5254001f7ab1
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- apiGroup: rbac.authorization.k8s.io
+  kind: Group
+  name: system:masters
+```
+
 创建admin证书和私钥
 
 cfssl gencert -ca=ca.pem -ca-key=ca-key.pem -config=ca-config.json -profile=kubernetes admin-csr.json
@@ -185,7 +209,7 @@ CN 指定该证书的 User 为 system:kube-proxy
 kube-apiserver 预定义的 ClusterRoleBinding system:node-proxier 将User system:kube-proxy 与 Role system:node-proxier 绑定，该 Role 授予了调用 kube-apiserver Proxy 相关 API 的权限
 
 ```
-root@master:~# kubectl get clusterrolebinding system:node-proxier -n kube-system -o yaml
+root@master:~# kubectl get clusterrolebinding system:node-proxier  -o yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
