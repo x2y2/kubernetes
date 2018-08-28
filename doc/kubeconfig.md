@@ -64,4 +64,5 @@ kubectl confit use-context default --kubeconfig=kube-proxy.kubeconfig
 ```
 
 ##分发kubeconfig文件
+
 将bootstrap.kubeconfig 和kube-proxy.kubeconfig scp 到各个node节点的/data/kubernetes/ssl
