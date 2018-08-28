@@ -1,4 +1,4 @@
-## 创建搞可用的etcd集群
+## 创建高可用etcd集群
 
 etc集群分布在三台机器上，这三台机器同时也作为node节点，先下载etcd文件，[点击这里](https://github.com/etcd-io/etcd/releases/download/v3.2.18/etcd-v3.2.18-linux-amd64.tar.gz)下载
 
