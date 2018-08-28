@@ -1,4 +1,20 @@
-##目录结构说明
+## 部署环境
+master 192.168.100.39
+node1 etcd1 192.168.100.42
+node2 etcd2 192.168.100.47
+node3 etcd3 192.168.100.48
+
+OS: Ubuntu 16.04
+```
+root@master:~# kubectl get nodes
+NAME      STATUS    ROLES     AGE       VERSION
+node1     Ready     <none>    3d        v1.10.0
+node2     Ready     <none>    3d        v1.10.0
+node3     Ready     <none>    3d        v1.10.0
+node4     Ready     <none>    6h        v1.10.0
+```
+
+## 目录结构说明
 
 k8s的家目录在/data/kubernetes，在家目录下有conf,ssl,logs,addons,bin目录
 ```
