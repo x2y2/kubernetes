@@ -171,7 +171,7 @@ WantedBy=multi-user.target
 
 - 确保bootstrap.kubeconfig 文件已经存在
 - kubelet会使用--bootstrap-kubeconfig指定的文件中的用户名和token向kube-apiserver发TLS Bootstrapping请求;
-
+- --pod-infra-container-image 配置从私有镜像库下载pause-amd64
 
 启动服务
 
