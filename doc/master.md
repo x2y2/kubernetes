@@ -1,10 +1,11 @@
 
 ## master端软件安装
 
-从[百度盘](https://pan.baidu.com/s/1FEDIPiP-tGBEXNUnepIykA)中下载kubernetes-sever-linux-amd64-1.10.0.tar.gz,解压后将包中的kubectl,kube-apiserver,kube-controller-manager,kube-scheduler文件复制到/data/kubernetes/bin
+从[百度盘](https://pan.baidu.com/s/1FEDIPiP-tGBEXNUnepIykA)中下载kubernetes-sever-linux-amd64-1.10.0.tar.gz,解压后将包中的kubectl,kube-apiserver,kube-controller-manager,kube-scheduler文件复制到/data/kubernetes/bin,对kubectl 建软链到/usr/local/bin
 
 ```
 cp kubectl kube-apiserver kube-controller-manager kube-scheduler /data/kubernetes/bin
+ln -s /data/kubernetes/bin/kubectl /usr/local/bin/kubectl
 ```
 
 ## kube-apiserver 
