@@ -50,8 +50,10 @@ cp kubernetes/cluster/centos/node/bin/remove-docker0.sh  /data/kubernetes/bin
 
 Flannel CNI集成
 
+```
 wget https://github.com/containernetworking/plugins/releases/download/v0.7.1/cni-plugins-amd64-v0.7.1.tgz
 tar zxf cni-plugins-amd64-v0.7.1.tgz -C /data/kubernetes/bin/cni
+```
 
 etc中创建网络配置（在etc节点上操作）
 
