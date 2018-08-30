@@ -4,10 +4,6 @@
 
 docker pull index.docker.io/library/registry
 
-改tag
-
-docker tag index.docker.io/library/registry registry
-
 用registry 镜像启动容器
 
 docker run -d --name docker-registry --restart=always -p 5000:5000 -v /data/registry:/var/lib/registry registry
