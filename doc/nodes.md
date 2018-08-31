@@ -58,7 +58,7 @@ tar zxf cni-plugins-amd64-v0.7.1.tgz -C /data/kubernetes/bin/cni
 etc中创建网络配置（在etc节点上操作）
 
 ```
-etcdctl  --ca-file=/data/kubernetes/ssl/ca.pem --cert-file=/data/kubernetes/ssl/kubernetes.pem --key-file=/data/kubernetes/ssl/kubernetes-key.pem --no-sync -C --endpoints="https://192.168.100.42:2379,https://192.168.100.47:2379,https://192.168.100.48:2379" mk /kubernetes/network/config '{"Network": "172.17.0.0/16","Backend": {"Type": "vxlan","VNI": 1}}'
+etcdctl  --ca-file=/data/kubernetes/ssl/ca.pem --cert-file=/data/kubernetes/ssl/kubernetes.pem --key-file=/data/kubernetes/ssl/kubernetes-key.pem --no-sync --endpoints="https://192.168.100.42:2379,https://192.168.100.47:2379,https://192.168.100.48:2379" mk /kubernetes/network/config '{"Network": "172.17.0.0/16","Backend": {"Type": "vxlan","VNI": 1}}'
 ```
 
 启动flanneld
